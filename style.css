@@ -1,0 +1,116 @@
+/* style.css */
+body {
+    background: linear-gradient(to bottom right, #f8e0ff, #ffe6f2); /* Gradient background */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 60px; /* Increased padding */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.rose-image {
+    width: 300px; /* Larger rose image */
+    margin-bottom: 30px;
+}
+
+.rose-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Slightly rounded image corners */
+}
+
+.message h1 {
+    color: #d9534f;
+    font-family: 'Pacifico', cursive; /* Elegant font for heading */
+    margin-bottom: 15px;
+    font-size: 2.5em; /* Larger heading */
+}
+
+.message p {
+    color: #555; /* Slightly lighter text color */
+    margin-bottom: 20px;
+    line-height: 1.6; /* Improved readability */
+}
+
+
+.heart { /* ... (heart styles remain mostly the same) */
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #ff6b6b;
+    transform: rotate(-45deg);
+    top: 50%;
+    left: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    animation: heartbeat 2s infinite ease-in-out;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
+}
+
+/* ... (heart::before and heart::after styles remain the same) */
+
+/* Falling Hearts Animation */
+.falling-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Behind the main content */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.heart-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b6b;
+    transform: rotate(-45deg);
+    animation: falling 5s linear infinite; /* Adjust duration as needed */
+    opacity: 0.7; /* Slightly transparent hearts */
+}
+
+.heart-icon::before, .heart-icon::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff6b6b;
+  border-radius: 50%;
+  top: -10px;
+  left: 0;
+}
+
+.heart-icon::after {
+  left: 10px;
+}
+
+
+@keyframes falling {
+    0% {
+        transform: translate(0, -20px) rotate(-45deg); /* Start above the viewport */
+        opacity: 0;
+    }
+    20% {
+        opacity: 1; /* Fade in */
+    }
+    100% {
+        transform: translate(var(--x), 100vh) rotate(-45deg); /* Fall to bottom */
+        opacity: 0; /* Fade out */
+    }
+}
+
+
+/* ... (keyframes fadeIn, slideInDown, heartbeat remain the same) */
